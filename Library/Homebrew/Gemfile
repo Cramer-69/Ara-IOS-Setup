@@ -80,6 +80,9 @@ end
 group :contributions, optional: true do
   gem "csv", require: false
 end
+group :ios, optional: true do
+  gem "fastlane", require: false
+end
 
 # shared gems (used by multiple groups)
 group :audit, :bump_unversioned_casks, :livecheck, optional: true do

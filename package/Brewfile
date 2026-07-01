@@ -1,0 +1,25 @@
+# package/Brewfile — iOS Development Tools (package build environment)
+# Mirrors the root Brewfile for use during package builds.
+# Install all tools with: brew bundle
+
+# ── Project generation ────────────────────────────────────────────────────────
+brew "xcodegen"       # Generate Xcode projects from a YAML spec
+
+# ── CI/CD automation ─────────────────────────────────────────────────────────
+brew "fastlane"       # Automate building, testing, and releasing iOS apps
+
+# ── Dependency management ────────────────────────────────────────────────────
+brew "cocoapods"      # CocoaPods dependency manager for Xcode projects
+brew "carthage"       # Decentralised Cocoa dependency manager
+brew "mint"           # Install and run Swift CLI tools from any package
+
+# ── Code quality ─────────────────────────────────────────────────────────────
+brew "swiftlint"      # Enforce Swift style and conventions
+brew "swiftformat"    # Format Swift code automatically
+
+# ── Build tooling ────────────────────────────────────────────────────────────
+brew "xcbeautify"     # Beautify xcodebuild output in the terminal
+brew "ios-deploy"     # Install and debug apps on real iOS devices
+
+# ── Mac App Store CLI ────────────────────────────────────────────────────────
+brew "mas"            # Mac App Store command-line interface
