@@ -76,5 +76,20 @@
     "log": {
       "parser": "plain"
     }
-  }
+  },
+  "markdown.validate.enabled": true,
+  "gitlens.ai.generateCommits.customInstructions": "follow your rules",
+  "editor.fontSize": 14,
+  "editor.formatOnSave": true,
+  "editor.allowVariableFontsInAccessibilityMode": true,
+  "editor.experimental.asyncTokenizationLogging": true,
+  "editor.experimental.preferTreeSitter.css": true,
+  "editor.experimental.preferTreeSitter.ini": true,
+  "editor.experimental.preferTreeSitter.regex": true,
+  "editor.experimental.preferTreeSitter.typescript": true,
+  "editor.experimental.treeSitterTelemetry": true,
+  "editor.experimental.asyncTokenizationVerification": true,
+  "editor.cursorWidth": 1,
+  "editor.cursorStyle": "underline",
+  "editor.cursorSmoothCaretAnimation": "on"
 }
