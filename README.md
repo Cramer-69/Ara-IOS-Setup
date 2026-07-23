@@ -5,9 +5,66 @@
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/homebrew?label=GitHub%20Sponsors)](https://github.com/sponsors/Homebrew)
 [![Open Collective backers and sponsors](https://img.shields.io/opencollective/all/homebrew?label=Open%20Collective)](https://opencollective.com/homebrew)
 
-See [Homebrew's homepage at `brew.sh`](https://brew.sh) for installation instructions, what homebrew does, packages, `brew bundle` and more.
+See [Homebrew's homepage at `brew.sh`](https://brew.sh) for installation
+instructions, what Homebrew does, packages, `brew bundle` and more.
 
 <img src="https://brew.sh/assets/img/brew-install.gif" alt="Homebrew install demo" width="580" height="424">
+
+---
+
+## 🍎 iOS Development Setup
+
+> This fork is configured as an **iOS development environment scaffold**
+> (`Ara-IOS-Setup`). It bundles all the tooling you need for modern iOS
+> development on top of Homebrew.
+
+### Installing iOS tools
+
+Install every tool at once with:
+
+```sh
+brew bundle
+```
+
+The [`Brewfile`](./Brewfile) at the root of the repo includes:
+
+| Tool | Category | Description |
+|------|----------|-------------|
+| `xcodegen` | Project generation | Generate Xcode projects from a YAML spec |
+| `fastlane` | CI/CD | Automate building, testing, and releasing iOS apps |
+| `cocoapods` | Dependencies | CocoaPods dependency manager for Xcode projects |
+| `carthage` | Dependencies | Decentralised Cocoa dependency manager |
+| `mint` | Dependencies | Install and run Swift CLI tools from any package |
+| `swiftlint` | Code quality | Enforce Swift style and conventions |
+| `swiftformat` | Code quality | Format Swift code automatically |
+| `xcbeautify` | Build tooling | Beautify `xcodebuild` terminal output |
+| `ios-deploy` | Build tooling | Install and debug apps on real iOS devices |
+| `mas` | App Store CLI | Mac App Store command-line interface |
+
+### Xcode build settings
+
+Shared build settings are stored in
+[`xcode/xcode-build-settings.xcconfig`](./xcode/xcode-build-settings.xcconfig).
+Reference this file from your Xcode project's build configuration to apply:
+
+- `IPHONEOS_DEPLOYMENT_TARGET = 16.0`
+- `SWIFT_VERSION = 5.9`
+- `CODE_SIGN_STYLE = Automatic`
+- `PRODUCT_BUNDLE_IDENTIFIER = com.ara.ios.setup`
+- `MARKETING_VERSION = 1.0.0`
+- `CURRENT_PROJECT_VERSION = 1`
+
+### CI
+
+The [`xcode-ios-build`](.github/workflows/xcode-ios-build.yml) workflow
+runs on every push/PR to `main` on `macos-14` (Apple Silicon). It:
+
+1. Sets up the latest stable Xcode
+2. Caches Homebrew downloads
+3. Installs all iOS tools via `brew bundle`
+4. Runs `swiftlint` on any Swift files present
+
+---
 
 ## 💸 Donations
 

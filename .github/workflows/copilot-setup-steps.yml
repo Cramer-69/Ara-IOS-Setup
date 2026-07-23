@@ -28,6 +28,8 @@ jobs:
       - uses: Homebrew/actions/cache-homebrew-prefix@main
         with:
           install: shellcheck shfmt gh gnu-tar subversion curl
+                   xcodegen fastlane cocoapods swiftlint swiftformat
+                   xcbeautify ios-deploy carthage mint mas
           workflow-key: copilot-setup-steps
 
       # brew tests doesn't like world writable directories
