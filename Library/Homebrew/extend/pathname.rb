@@ -19,8 +19,10 @@ module ELFShim; end
 
 # @api private
 module BinaryPathname
-  sig { params(path: T.any(Pathname, String, MachOShim, ELFShim)).returns(T.any(MachOShim, ELFShim)) }
-  def self.wrap(path) = raise NotImplementedError
+  sig { params(path: T.any(Pathname, String, MachOShim, ELFShim)).returns(T.noreturn) }
+  def self.wrap(path)
+    raise NotImplementedError, "#{name}.wrap must be implemented by a platform-specific shim"
+  end
 end
 
 # Homebrew extends Ruby's `Pathname` to make our code more readable.
